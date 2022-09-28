@@ -191,4 +191,88 @@
       header="Confirm"
       :modal="true"
     >
+     <div class="confirmation-content">
+        <i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem" />
+        <span v-if="device"
+          >Are you sure you want to delete <b>{{ device.title }}</b
+          >?</span
+        >
+      </div>
+      <template #footer>
+        <pv-button
+          :label="'No'.toUpperCase()"
+          icon="pi pi-times"
+          class="p-button-text"
+          @click="deleteDeviceDialog = false"
+        />
+        <pv-button
+          :label="'Yes'.toUpperCase()"
+          icon="pi pi-check"
+          class="p-button-text"
+          @click="deleteDevice"
+        />
+      </template>
+    </pv-dialog>
+    <pv-dialog
+      v-model:visible="deleteDevicesDialog"
+      :style="{ width: '450px' }"
+      header="Confirm"
+      :modal="true"
+    >
+      <div class="confirmation-content">
+        <i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem" />
+        <span v-if="device"
+          >Are you sure you want to delete the selected devices?</span
+        >
+      </div>
+      <template #footer>
+        <pv-button
+          :label="'No'.toUpperCase()"
+          icon="pi pi-times"
+          class="p-button-text"
+          @click="deleteDevicesDialog = false"
+        />
+        <pv-button
+          :label="'Yes'.toUpperCase()"
+          icon="pi pi-check"
+          class="p-button-text"
+          @click="deleteSelectedDevices"
+        />
+      </template>
+    </pv-dialog>
+  </div>
+</template>
+<script>
+import { DevicesApiService } from "../services/devices-api.service";
+import { FilterMatchMode } from "primevue/api";
+export default {
+  name: "device-list",
+  data() {
+    return {
+      devices: [],
+      deviceDialog: false,
+      deleteDeviceDialog: false,
+      deleteDevicesDialog: false,
+      device: {},
+      selectedDevices: null,
+      filters: {},
+      submitted: false,
+      statuses: [
+        { label: "Published", value: "published" },
+        { label: "Unpublished", value: "unpublished" },
+      ],
+      devicesService: null,
+    };
+  },
+  created() {
+    this.devicesService = new DevicesApiService();
+    this.devicesService.getAll().then((response) => {
+      this.devices = response.data;
+      console.log(this.devices);
+      this.devices.forEach((device) => this.getDisplayableDevice(device));
+      console.log(this.devices);
+    });
+    this.initFilters();
+  },
+
 
