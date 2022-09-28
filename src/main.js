@@ -7,6 +7,7 @@ import ToastService from "primevue/toastservice";
 import PrimeVue from "primevue/config";
 // PrimeVue Material Design Theme
 import "primevue/resources/themes/md-light-indigo/theme.css";
+import "/src/assets/_theme.scss"; // Theme colors change
 import "primevue/resources/primevue.min.css";
 import "primeicons/primeicons.css";
 import "primeflex/primeflex.css";
