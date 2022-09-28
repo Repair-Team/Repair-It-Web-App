@@ -275,4 +275,144 @@ export default {
     this.initFilters();
   },
 
+  methods: {
+    getDisplayableDevice(device) {
+      device.status = device.published
+        ? this.statuses[0].label
+        : this.statuses[1].label;
+      return device;
+    },
+    getStorableDevice(displayableDevice) {
+      return {
+        id: displayableDevice.id,
+        title: displayableDevice.title,
+        description: displayableDevice.description,
+        published: displayableDevice.status.label === "Published",
+      };
+    },
+    openNew() {
+      this.device = {};
+      this.submitted = false;
+      this.deviceDialog = true;
+    },
+    hideDialog() {
+      this.deviceDialog = false;
+      this.submitted = false;
+    },
+    findIndexById(id) {
+      console.log(`current id: ${id}`);
+      return this.devices.findIndex((device) => device.id === id);
+    },
+    saveDevice() {
+      this.submitted = true;
+      if (this.device.title.trim()) {
+        if (this.device.id) {
+          console.log(this.device);
+          this.device = this.getStorableDevice(this.device);
+          this.devicesService
+            .update(this.device.id, this.device)
+            .then((response) => {
+              console.log(response.data.id);
+              this.devices[this.findIndexById(response.data.id)] =
+                this.getDisplayableDevice(response.data);
+              this.$toast.add({
+                severity: "success",
+                summary: "Successful",
+                detail: "Device Updated",
+                life: 3000,
+              });
+              console.log(response);
+            });
+        } else {
+          this.device.id = 0;
+          console.log(this.device);
+          this.device = this.getStorableDevice(this.device);
+          this.devicesService.create(this.device).then((response) => {
+            this.device = this.getDisplayableDevice(response.data);
+            this.devices.push(this.device);
+            this.$toast.add({
+              severity: "success",
+              summary: "Successful",
+              detail: "Device Created",
+              life: 3000,
+            });
+            console.log(response);
+          });
+        }
+        this.deviceDialog = false;
+        this.device = {};
+      }
+    },
+    editDevice(device) {
+      console.log(device);
+      this.device = { ...device };
+      console.log(this.device);
+      this.deviceDialog = true;
+    },
+    confirmDeleteDevice(device) {
+      this.device = device;
+      this.deleteDeviceDialog = true;
+    },
+    deleteDevice() {
+      this.devicesService.delete(this.device.id).then((response) => {
+        this.devices = this.devices.filter((t) => t.id !== this.device.id);
+        this.deleteDevicesDialog = false;
+        this.device = {};
+        this.$toast.add({
+          severity: "success",
+          summary: "Successful",
+          detail: "Device Deleted",
+          life: 3000,
+        });
+        console.log(response);
+      });
+    },
+    exportToCSV() {
+      this.$refs.dt.exportCSV();
+    },
+    confirmDeleteSelected() {
+      this.deleteDevicesDialog = true;
+    },
+    deleteSelectedDevices() {
+      this.selectedDevices.forEach((device) => {
+        this.devicesService.delete(device.id).then((response) => {
+          this.devices = this.devices.filter((t) => t.id !== this.device.id);
+          console.log(response);
+        });
+      });
+      this.deleteDevicesDialog = false;
+    },
+    initFilters() {
+      this.filters = {
+        global: { value: null, matchMode: FilterMatchMode.CONTAINS },
+      };
+    },
+  },
+};
+</script>
+<style lang="scss" scoped>
+.table-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @media screen and (max-width: 960px) {
+    align-items: start;
+  }
+}
+.confirmation-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media screen and (max-width: 960px) {
+  ::v-deep(.p-toolbar) {
+    flex-wrap: wrap;
+    .p-button {
+      margin-bottom: 0.25rem;
+    }
+  }
+}
+</style>
+ 
+
 
