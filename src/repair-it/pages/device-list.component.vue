@@ -93,3 +93,102 @@
             <pv-tag v-else severity="info">{{ slotProps.data.status }}</pv-tag>
           </template>
         </pv-column> -->
+        <pv-column :exportable="false" style="min-width: 8rem">
+          <template #body="slotProps">
+            <pv-button
+              icon="pi pi-pencil"
+              class="p-button-text p-button-rounded"
+              @click="editDevice(slotProps.data)"
+            />
+            <pv-button
+              icon="pi pi-trash"
+              class="p-button-text p-button-rounded"
+              @click="confirmDeleteDevice(slotProps.data)"
+            />
+          </template>
+        </pv-column>
+      </pv-data-table>
+    </div>
+    <pv-dialog
+      v-model:visible="deviceDialog"
+      :style="{ width: '450px' }"
+      header="Device Information"
+      :modal="true"
+      class="p-fluid"
+    >
+      <div class="field mt-3">
+        <span class="p-float-label">
+          <pv-input-text
+            type="text"
+            id="title"
+            v-model.trim="device.title"
+            required="true"
+            autofocus
+            :class="{ 'p-invalid': submitted && !device.title }"
+          />
+          <label for="title">Title</label>
+          <small class="p-error" v-if="submitted && !device.title"
+            >Title is required.</small
+          >
+        </span>
+      </div>
+      <div class="field">
+        <span class="p-float-label">
+          <pv-textarea
+            id="description"
+            v-model="device.description"
+            required="false"
+            rows="2"
+            cols="20"
+          />
+          <label for="description">Description</label>
+        </span>
+      </div>
+      <div class="field">
+        <pv-dropdown
+          id="published"
+          v-model="device.status"
+          :options="statuses"
+          optionLabel="label"
+          placeholder="Select a Status"
+        >
+          <template #value="slotProps">
+            <div v-if="slotProps.value && slotProps.value.value">
+              <span :class="'device-badge status-' + slotProps.value.value">{{
+                slotProps.value.label
+              }}</span>
+            </div>
+            <div v-else-if="slotProps.value && !slotProps.value.value">
+              <span
+                :class="'device-badge status-' + slotProps.value.toLowerCase()"
+                >{{ slotProps.value }}</span
+              >
+            </div>
+            <span v-else>
+              {{ slotProps.placeholder }}
+            </span>
+          </template>
+        </pv-dropdown>
+      </div>
+      <template #footer>
+        <pv-button
+          :label="'Cancel'.toUpperCase()"
+          icon="pi pi-times"
+          class="p-button-text"
+          @click="hideDialog"
+        />
+        <pv-button
+          :label="'Save'.toUpperCase()"
+          icon="pi pi-check"
+          class="p-button-text"
+          @click="saveDevice"
+        />
+      </template>
+    </pv-dialog>
+    <pv-dialog
+      v-model:visible="deleteDeviceDialog"
+      :style="{ width: '450px' }"
+      header="Confirm"
+      :modal="true"
+    >
+
