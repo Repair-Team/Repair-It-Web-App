@@ -1,0 +1,114 @@
+{
+    "deviceBrands": [
+      {
+        "id": "1",
+        "name": "Samsung",
+        "imagePath": "samsung-logo.png"
+      },
+      {
+        "id": "2",
+        "name": "Apple",
+        "imagePath": "apple-logo.png"
+      },
+      {
+        "id": "3",
+        "name": "Xiaomi",
+        "imagePath": "xiaomi-logo.png"
+      }
+    ],
+    "deviceModels": [
+      {
+        "id": "1",
+        "model": "Samsung Galaxy S22",
+        "imagePath": "samsung-galaxy-s22.png",
+        "deviceBrandId": "1"
+      },
+      {
+        "id": "2",
+        "model": "Samsung Galaxy A53",
+        "imagePath": "samsung-galaxy-a53.png",
+        "deviceBrandId": "1"
+      },
+      {
+        "id": "3",
+        "model": "iPhone 13",
+        "imagePath": "iphone-13.png",
+        "deviceBrandId": "2"
+      },
+      {
+        "id": "4",
+        "model": "iPhone 12",
+        "imagePath": "iphone-12.png",
+        "deviceBrandId": "2"
+      },
+      {
+        "id": "5",
+        "model": "Xiaomi 12 Pro",
+        "imagePath": "xiaomi-12-pro.png",
+        "deviceBrandId": "3"
+      },
+      {
+        "id": "6",
+        "model": "Xiaomi Mi 11",
+        "imagePath": "xiaomi-mi-11.png",
+        "deviceBrandId": "3"
+      }
+    ],
+    "technicians": [
+      {
+        "id": "1",
+        "names": "Juan Manuel",
+        "lastnames": "Vargas Risco",
+        "cellphoneNumber": "900000000",
+        "address": "Av. Javier Prado Este 7700",
+        "district": "Ate",
+        "email": "jvargas@gmail.com",
+        "birthday": "1983-10-05",
+        "password": "jvargas"
+      },
+      {
+        "id": "2",
+        "names": "Jose Paolo",
+        "lastnames": "Guerrero Gonzales",
+        "cellphoneNumber": "900000001",
+        "address": "Av. Isabel La Catolica 821",
+        "district": "La Victoria",
+        "email": "jguerrero@gmail.com",
+        "birthday": "1984-01-01",
+        "password": "jguerrero"
+      }
+    ],
+    "clients": [
+      {
+        "id": "1",
+        "cellphoneNumber": "987654321",
+        "names": "Jefferson Agustin",
+        "lastNames": "Farfan Guadalupe",
+        "address": "Av. Isabel La Catolica 823",
+        "district": "La Victoria",
+        "email": "jfarfan@gmail.com",
+        "birthday": "1984-10-26",
+        "password": "jfarfan"
+      },
+      {
+        "id": "2",
+        "cellphoneNumber": "987654322",
+        "names": "Claudio Miguel",
+        "lastNames": "Pizarro Bosio",
+        "address": "Av. Isabel La Catolica 825",
+        "district": "La Victoria",
+        "email": "cpizarro@gmail.com",
+        "birthday": "1978-10-03",
+        "password": "cpizarro"
+      }
+    ],
+    "devices": [
+      {
+        "id": "1",
+        "deviceModelId": "1",
+        "clientId": "1",
+        "purchaseDate": 2022
+      }
+    ]
+  }
+  
