@@ -20,37 +20,37 @@
     {
       "id": "1",
       "model": "Samsung Galaxy S22",
-      "imagePath": "samsung-galaxy-s22.png",
+      "imagePath": "https://images.samsung.com/is/image/samsung/p6pim/mx/2202/gallery/mx-galaxy-a53-5g-a536-sm-a536ezoeltm-531545986?$1300_1038_PNG$",
       "deviceBrandId": "1"
     },
     {
       "id": "2",
       "model": "Samsung Galaxy A53",
-      "imagePath": "samsung-galaxy-a53.png",
+      "imagePath": "https://images.samsung.com/is/image/samsung/p6pim/mx/2202/gallery/mx-galaxy-a53-5g-a536-sm-a536ezoeltm-531545986?$1300_1038_PNG$",
       "deviceBrandId": "1"
     },
     {
       "id": "3",
       "model": "iPhone 13",
-      "imagePath": "iphone-13.png",
+      "imagePath": "https://images.samsung.com/is/image/samsung/p6pim/mx/2202/gallery/mx-galaxy-a53-5g-a536-sm-a536ezoeltm-531545986?$1300_1038_PNG$",
       "deviceBrandId": "2"
     },
     {
       "id": "4",
       "model": "iPhone 12",
-      "imagePath": "iphone-12.png",
+      "imagePath": "https://images.samsung.com/is/image/samsung/p6pim/mx/2202/gallery/mx-galaxy-a53-5g-a536-sm-a536ezoeltm-531545986?$1300_1038_PNG$",
       "deviceBrandId": "2"
     },
     {
       "id": "5",
       "model": "Xiaomi 12 Pro",
-      "imagePath": "xiaomi-12-pro.png",
+      "imagePath": "https://images.samsung.com/is/image/samsung/p6pim/mx/2202/gallery/mx-galaxy-a53-5g-a536-sm-a536ezoeltm-531545986?$1300_1038_PNG$",
       "deviceBrandId": "3"
     },
     {
       "id": "6",
       "model": "Xiaomi Mi 11",
-      "imagePath": "xiaomi-mi-11.png",
+      "imagePath": "https://images.samsung.com/is/image/samsung/p6pim/mx/2202/gallery/mx-galaxy-a53-5g-a536-sm-a536ezoeltm-531545986?$1300_1038_PNG$",
       "deviceBrandId": "3"
     }
   ],
@@ -104,14 +104,46 @@
   ],
   "devices": [
     {
-      "id": "1",
-      "deviceMBrandId": "1",
-      "deviceBrandName": "Samsung",
+      "id": 1,
       "deviceModelId": "1",
-      "deviceModelName": "Samsung Galaxy S22",
       "clientId": "1",
-      "purchaseDate": 2022,
-      "status": "workingProperly"
+      "purchaseDate": 2022
+    },
+    {
+      "id": 2,
+      "deviceModelId": "1",
+      "clientId": "2",
+      "purchaseDate": 2022
+    },
+    {
+      "id": 3,
+      "deviceModelId": "1",
+      "clientId": "3",
+      "purchaseDate": 2022
+    },
+    {
+      "id": 4,
+      "deviceModelId": "2",
+      "clientId": "2",
+      "purchaseDate": "2025"
+    },
+    {
+      "id": 5,
+      "deviceModelId": "1",
+      "clientId": "2",
+      "purchaseDate": "2028"
+    },
+    {
+      "id": 6,
+      "deviceModelId": "20",
+      "clientId": "20",
+      "purchaseDate": "20"
+    },
+    {
+      "id": 7,
+      "deviceModelId": "2",
+      "clientId": "23",
+      "purchaseDate": "2089"
     }
   ]
 }
