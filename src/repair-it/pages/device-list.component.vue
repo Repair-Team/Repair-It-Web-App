@@ -26,6 +26,7 @@
           />
         </template>
       </pv-toolbar>
+
       <pv-data-table
         ref="dt"
         :value="devices"
@@ -55,30 +56,33 @@
             </span>
           </div>
         </template>
+
         <pv-column
           selectionMode="multiple"
           style="width: 3rem"
           :exportable="false"
         ></pv-column>
+        <!--
         <pv-column
           field="id"
           header="ID"
           :sortable="true"
-          style="min-width: 12rem"
+          style="min-width: 4rem"
         ></pv-column>
+        -->
         <pv-column
-          field="deviceModelId"
-          header="Device Model ID"
+          field="deviceBrandName"
+          header="Brand Name"
           :sortable="true"
           style="min-width: 16rem"
         ></pv-column>
         <pv-column
-          field="clientId"
-          header="Client ID"
+          field="deviceModelName"
+          header="Model Name"
           :sortable="true"
           style="min-width: 16rem"
         ></pv-column>
-        <!--<pv-column
+        <!--       <pv-column
           field="status"
           header="Status"
           :sortable="true"
@@ -86,13 +90,14 @@
         >
           <template #body="slotProps">
             <pv-tag
-              v-if="slotProps.data.status === 'Published'"
+              v-if="slotProps.data.status === 'onRepair'"
               severity="success"
               >{{ slotProps.data.status }}</pv-tag
             >
             <pv-tag v-else severity="info">{{ slotProps.data.status }}</pv-tag>
           </template>
-        </pv-column> -->
+        </pv-column> 
+      -->
         <pv-column :exportable="false" style="min-width: 8rem">
           <template #body="slotProps">
             <pv-button
@@ -120,18 +125,35 @@
         <span class="p-float-label">
           <pv-input-text
             type="text"
-            id="title"
-            v-model.trim="device.title"
+            id="deviceBrandName"
+            v-model.trim="device.deviceBrandName"
             required="true"
             autofocus
-            :class="{ 'p-invalid': submitted && !device.title }"
+            :class="{ 'p-invalid': submitted && !device.deviceBrandName }"
           />
-          <label for="title">Title</label>
-          <small class="p-error" v-if="submitted && !device.title"
-            >Title is required.</small
+          <label for="deviceBrandName">Brand Name</label>
+          <small class="p-error" v-if="submitted && !device.deviceBrandName"
+            >Brand Name is required.</small
           >
         </span>
       </div>
+      <div class="field mt-3">
+        <span class="p-float-label">
+          <pv-input-text
+            type="text"
+            id="deviceModelName"
+            v-model.trim="device.deviceModelName"
+            required="true"
+            autofocus
+            :class="{ 'p-invalid': submitted && !device.deviceModelName }"
+          />
+          <label for="deviceModelName">Model Name</label>
+          <small class="p-error" v-if="submitted && !device.deviceModelName"
+            >Model Name is required.</small
+          >
+        </span>
+      </div>
+      <!--
       <div class="field">
         <span class="p-float-label">
           <pv-textarea
@@ -144,6 +166,8 @@
           <label for="description">Description</label>
         </span>
       </div>
+      -->
+      <!--
       <div class="field">
         <pv-dropdown
           id="published"
@@ -170,6 +194,7 @@
           </template>
         </pv-dropdown>
       </div>
+-->
       <template #footer>
         <pv-button
           :label="'Cancel'.toUpperCase()"
@@ -191,10 +216,10 @@
       header="Confirm"
       :modal="true"
     >
-     <div class="confirmation-content">
+      <div class="confirmation-content">
         <i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem" />
         <span v-if="device"
-          >Are you sure you want to delete <b>{{ device.title }}</b
+          >Are you sure you want to delete <b>{{ device.deviceBrandName }}</b
           >?</span
         >
       </div>
@@ -242,6 +267,7 @@
     </pv-dialog>
   </div>
 </template>
+
 <script>
 import { DevicesApiService } from "../services/devices-api.service";
 import { FilterMatchMode } from "primevue/api";
@@ -258,8 +284,8 @@ export default {
       filters: {},
       submitted: false,
       statuses: [
-        { label: "Published", value: "published" },
-        { label: "Unpublished", value: "unpublished" },
+        { label: "onRepair", value: "onRepair" },
+        { label: "workingProperly", value: "workingProperly" },
       ],
       devicesService: null,
     };
@@ -285,9 +311,9 @@ export default {
     getStorableDevice(displayableDevice) {
       return {
         id: displayableDevice.id,
-        title: displayableDevice.title,
-        description: displayableDevice.description,
-        published: displayableDevice.status.label === "Published",
+        deviceBrandName: displayableDevice.deviceBrandName,
+        deviceModelName: displayableDevice.deviceModelName,
+        //published: displayableDevice.status.label === "onRepair",
       };
     },
     openNew() {
@@ -305,7 +331,7 @@ export default {
     },
     saveDevice() {
       this.submitted = true;
-      if (this.device.title.trim()) {
+      if (this.device.deviceBrandName.trim()) {
         if (this.device.id) {
           console.log(this.device);
           this.device = this.getStorableDevice(this.device);
@@ -413,6 +439,3 @@ export default {
   }
 }
 </style>
- 
-
-
