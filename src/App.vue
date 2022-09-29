@@ -12,7 +12,9 @@ export default {
   },
 };
 </script>
+<!---->
 <template>
+  <!---->
   <pv-toast />
   <header>
     <pv-toolbar class="bg-primary">
@@ -44,6 +46,7 @@ export default {
       </template>
     </pv-toolbar>
   </header>
+
   <pv-sidebar v-model:visible="drawer"> </pv-sidebar>
   <RouterView />
 </template>

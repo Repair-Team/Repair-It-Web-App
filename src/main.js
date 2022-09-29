@@ -11,6 +11,7 @@ import "/src/assets/_theme.scss"; // Theme colors change
 import "primevue/resources/primevue.min.css";
 import "primeicons/primeicons.css";
 import "primeflex/primeflex.css";
+import "/src/assets/_primeflex.scss"; // Prime flex change
 // PrimeVue Components
 import DataTable from "primevue/datatable";
 import Column from "primevue/column";

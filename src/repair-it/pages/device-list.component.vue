@@ -82,6 +82,12 @@
           :sortable="true"
           style="min-width: 16rem"
         ></pv-column>
+        <pv-column
+          field="description"
+          header="Description"
+          :sortable="true"
+          style="min-width: 16rem"
+        ></pv-column>
         <!--       <pv-column
           field="status"
           header="Status"
@@ -153,7 +159,7 @@
           >
         </span>
       </div>
-      <!--
+
       <div class="field">
         <span class="p-float-label">
           <pv-textarea
@@ -166,7 +172,7 @@
           <label for="description">Description</label>
         </span>
       </div>
-      -->
+
       <!--
       <div class="field">
         <pv-dropdown
@@ -313,6 +319,7 @@ export default {
         id: displayableDevice.id,
         deviceBrandName: displayableDevice.deviceBrandName,
         deviceModelName: displayableDevice.deviceModelName,
+        description: displayableDevice.description,
         //published: displayableDevice.status.label === "onRepair",
       };
     },
