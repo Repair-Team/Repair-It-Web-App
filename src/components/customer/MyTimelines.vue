@@ -1,10 +1,10 @@
 <template>
 	<div>
-        My Reports
+		My Timelines
 	</div>
 </template>
 
 <script>
-	export default {
-	}
+export default {
+}
 </script>
