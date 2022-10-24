@@ -40,7 +40,7 @@ export default {
                         { label: 'My Devices', icon: 'pi pi-fw pi-mobile', to: '/myDevices' },
                         { label: 'My Reports', icon: 'pi pi-fw pi-list', to: '/myReports' },
                         { label: 'My Plan', icon: 'pi pi-fw pi-money-bill', to: '/myPlan' },
-                        { label: 'My Profile', icon: 'pi pi-fw pi-user', to: '/myProfile' },
+                        { label: 'Profile', icon: 'pi pi-fw pi-user', to: '/profile' },
                     ]
                 },
             ]

@@ -5,7 +5,7 @@ import 'prismjs/themes/prism-coy.css';
 import './assets/styles/layout.scss';
 
 import { createApp, reactive } from 'vue';
-import router from './router';
+import router from './router/index';
 import AppWrapper from './components/AppWrapper.vue';
 import PrimeVue from 'primevue/config';
 import BadgeDirective from 'primevue/badgedirective';

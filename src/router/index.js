@@ -1,5 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
-import App from './App.vue';
+import App from '../App.vue';
 
 const routes = [
     {
@@ -10,39 +10,39 @@ const routes = [
             {
                 path: '',
                 name: 'dashboard',
-                component: () => import('./components/Dashboard.vue')
+                component: () => import('../components/customer/Dashboard.vue')
             },
             {
                 path: '/myDevices',
                 name: 'myDevices',
-                component: () => import('./components/MyDevices.vue')
+                component: () => import('../components/customer/MyDevices.vue')
             },
             {
                 path: '/notifications',
                 name: 'notifications',
-                component: () => import('./components/Notifications.vue')
+                component: () => import('../components/customer/Notifications.vue')
             },
             {
                 path: '/myReports',
                 name: 'myReports',
-                component: () => import('./components/MyReports.vue')
+                component: () => import('../components/customer/MyReports.vue')
             },
             {
                 path: '/myPlan',
                 name: 'myPlan',
-                component: () => import('./components/MyPlan.vue')
+                component: () => import('../components/customer/MyPlan.vue')
             },
             {
-                path: '/myProfile',
-                name: 'myProfile',
-                component: () => import('./components/MyProfile.vue')
+                path: '/profile',
+                name: 'profile',
+                component: () => import('../components/Profile.vue')
             },
         ]
     },
     {
         path: '/login',
         name: 'login',
-        component: () => import('./pages/Login.vue')
+        component: () => import('../views/Login.vue')
     },
 ];
 
