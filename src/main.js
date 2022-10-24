@@ -23,6 +23,8 @@ import DataViewLayoutOptions from 'primevue/dataviewlayoutoptions';
 import Button from 'primevue/button';
 import Menu from 'primevue/menu';
 import Chart from 'primevue/chart';
+import Timeline from 'primevue/timeline';
+import Card from 'primevue/card';
 
 import Tooltip from 'primevue/tooltip';
 
@@ -58,5 +60,7 @@ app.component('InputText', InputText);
 app.component('Password', Password);
 app.component('Menu', Menu);
 app.component('Chart', Chart);
+app.component('Timeline', Timeline);
+app.component('Card', Card);
 
 app.mount('#app');
