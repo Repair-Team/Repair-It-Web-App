@@ -67,6 +67,73 @@
 </template>
 
 <script>
-export default {
-}
+    import ProductService from "../../core/services/ProductService";
+ 
+    export default {
+        data() {
+            return {
+                picklistValue: [[
+                    {name: 'San Francisco', code: 'SF'},
+                    {name: 'London', code: 'LDN'},
+                    {name: 'Paris', code: 'PRS'},
+                    {name: 'Istanbul', code: 'IST'},
+                    {name: 'Berlin', code: 'BRL'},
+                    {name: 'Barcelona', code: 'BRC'},
+                    {name: 'Rome', code: 'RM'},
+                ],[]],
+                orderlistValue: [
+                    {name: 'San Francisco', code: 'SF'},
+                    {name: 'London', code: 'LDN'},
+                    {name: 'Paris', code: 'PRS'},
+                    {name: 'Istanbul', code: 'IST'},
+                    {name: 'Berlin', code: 'BRL'},
+                    {name: 'Barcelona', code: 'BRC'},
+                    {name: 'Rome', code: 'RM'},
+                ],
+                dataviewValue: null,
+                layout: 'grid',
+                sortKey: null,
+                sortOrder: null,
+                sortField: null,
+                sortOptions: [
+                    {label: 'Price High to Low', value: '!price'},
+                    {label: 'Price Low to High', value: 'price'},
+                ]
+            }
+        },
+        productService: null,
+        created() {
+            this.productService = new ProductService();
+        },
+        mounted() {
+            this.productService.getProducts().then(data => this.dataviewValue = data);
+        },
+        methods: {
+            onSortChange(event){
+                const value = event.value.value;
+                const sortValue = event.value;
+ 
+                if (value.indexOf('!') === 0) {
+                    this.sortOrder = -1;
+                    this.sortField = value.substring(1, value.length);
+                    this.sortKey = sortValue;
+                }
+                else {
+                    this.sortOrder = 1;
+                    this.sortField = value;
+                    this.sortKey = sortValue;
+                }
+            }
+        }
+    }
 </script>
+ 
+<style scoped lang="scss">
+@import '../../assets/demo/badges.scss';
+</style>
+ 
+
+
+
+
+
