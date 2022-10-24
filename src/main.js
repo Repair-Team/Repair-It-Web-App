@@ -13,6 +13,7 @@ import ConfirmationService from 'primevue/confirmationservice';
 import Ripple from 'primevue/ripple';
 import StyleClass from 'primevue/styleclass';
 import ToastService from 'primevue/toastservice';
+import Chart from 'primevue/chart';
 
 import Tooltip from 'primevue/tooltip';
 
@@ -37,5 +38,7 @@ app.directive('ripple', Ripple);
 app.directive('code', CodeHighlight);
 app.directive('badge', BadgeDirective);
 app.directive('styleclass', StyleClass);
+
+app.component('Chart', Chart);
 
 app.mount('#app');
