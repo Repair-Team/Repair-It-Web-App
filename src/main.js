@@ -16,7 +16,6 @@ import ToastService from 'primevue/toastservice';
 import DataView from 'primevue/dataview';
 import Dropdown from 'primevue/dropdown';
 import DataViewLayoutOptions from 'primevue/dataviewlayoutoptions';
-import Rating from 'primevue/rating';
 import Button from 'primevue/button';
 
 import Tooltip from 'primevue/tooltip';
@@ -45,7 +44,6 @@ app.directive('styleclass', StyleClass);
 app.component('DataView', DataView);
 app.component('Dropdown', Dropdown);
 app.component('DataViewLayoutOptions', DataViewLayoutOptions);
-app.component('Rating', Rating);
 app.component('Button', Button);
 
 app.mount('#app');
