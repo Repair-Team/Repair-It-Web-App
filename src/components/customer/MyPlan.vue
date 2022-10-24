@@ -5,13 +5,13 @@
             <div class="text-700 text-xl mb-6 text-center line-height-3">Choose the plan that best suits your needs. Remember that our mission is to offer you the best service.</div>
 
             <div class="grid">
-                <div class="col-12 lg:col-4">
+                <div class="col-12 lg:col-6 text-center">
                     <div class="p-3 h-full">
                         <div class="shadow-2 p-3 h-full flex flex-column surface-card" style="border-radius: 6px">
                             <div class="text-900 font-medium text-xl mb-2">FREE</div>
                             <div class="text-600">Plan description</div>
                             <hr class="my-3 mx-0 border-top-1 border-none surface-border" />
-                            <div class="flex align-items-center">
+                            <div class="align-items-center">
                                 <span class="font-bold text-2xl text-900">$0</span>
                                 <span class="ml-2 font-medium text-600">per month</span>
                             </div>
@@ -36,13 +36,13 @@
                     </div>
                 </div>
 
-                <div class="col-12 lg:col-4">
+                <div class="col-12 lg:col-6 text-center">
                     <div class="p-3 h-full">
                         <div class="shadow-2 p-3 h-full flex flex-column surface-card" style="border-radius: 6px">
                             <div class="text-900 font-medium text-xl mb-2">PLUS</div>
                             <div class="text-600">Plan description</div>
                             <hr class="my-3 mx-0 border-top-1 border-none surface-border" />
-                            <div class="flex align-items-center">
+                            <div class="align-items-center">
                                 <span class="font-bold text-2xl text-900">$5</span>
                                 <span class="ml-2 font-medium text-600">per month</span>
                             </div>
