@@ -1,51 +1,66 @@
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
-import App from './App.vue'
-import router from './router'
-import './assets/main.css'
-import ToastService from "primevue/toastservice";
-import PrimeVue from "primevue/config";
-// PrimeVue Material Design Theme
-import "primevue/resources/themes/md-light-indigo/theme.css";
-import "/src/assets/_theme.scss"; // Theme colors change
-import "primevue/resources/primevue.min.css";
-import "primeicons/primeicons.css";
-import "primeflex/primeflex.css";
-import "/src/assets/_primeflex.scss"; // Prime flex change
-// PrimeVue Components
-import DataTable from "primevue/datatable";
-import Column from "primevue/column";
-import Toolbar from "primevue/toolbar";
-import InputText from "primevue/inputtext";
-import Textarea from "primevue/textarea";
-import Button from "primevue/button";
-import Row from "primevue/row";
-import Sidebar from "primevue/sidebar";
-import Menu from "primevue/menu";
-import Dialog from "primevue/dialog";
-import Toast from "primevue/toast";
-import Dropdown from "primevue/dropdown";
-import Tag from "primevue/tag";
-import Card from "primevue/card";
-const app = createApp(App)
-app.use(createPinia())
-app.use(router)
-// Toast Service
+import 'primevue/resources/primevue.min.css';
+import 'primeflex/primeflex.css';
+import 'primeicons/primeicons.css';
+import 'prismjs/themes/prism-coy.css';
+import './assets/styles/layout.scss';
+import Chip from 'primevue/chip';
+import Image from 'primevue/image';
+import { createApp, reactive } from 'vue';
+import router from './router/index';
+import AppWrapper from './components/AppWrapper.vue';
+import Checkbox from 'primevue/checkbox';
+import InputText from 'primevue/inputtext';
+import PrimeVue from 'primevue/config';
+import BadgeDirective from 'primevue/badgedirective';
+import ConfirmationService from 'primevue/confirmationservice';
+import Password from 'primevue/password';
+import Ripple from 'primevue/ripple';
+import StyleClass from 'primevue/styleclass';
+import ToastService from 'primevue/toastservice';
+import DataView from 'primevue/dataview';
+import Dropdown from 'primevue/dropdown';
+import DataViewLayoutOptions from 'primevue/dataviewlayoutoptions';
+import Button from 'primevue/button';
+import Menu from 'primevue/menu';
+import Chart from 'primevue/chart';
+import Timeline from 'primevue/timeline';
+import Card from 'primevue/card';
+
+import Tooltip from 'primevue/tooltip';
+
+import CodeHighlight from './components/AppCodeHighlight';
+
+router.beforeEach(function (to, from, next) {
+    window.scrollTo(0, 0);
+    next();
+});
+
+const app = createApp(AppWrapper);
+
+app.config.globalProperties.$appState = reactive({ theme: 'lara-light-indigo', darkTheme: false });
+
+app.use(PrimeVue, { ripple: true, inputStyle: 'outlined' });
+app.use(ConfirmationService);
 app.use(ToastService);
-// PrimeVue Configuration
-app.use(PrimeVue, { ripple: true });
-app.component("pv-data-table", DataTable);
-app.component("pv-column", Column);
-app.component("pv-toolbar", Toolbar);
-app.component("pv-input-text", InputText);
-app.component("pv-textarea", Textarea);
-app.component("pv-button", Button);
-app.component("pv-row", Row);
-app.component("pv-sidebar", Sidebar);
-app.component("pv-menu", Menu);
-app.component("pv-dialog", Dialog);
-app.component("pv-toast", Toast);
-app.component("pv-dropdown", Dropdown);
-app.component("pv-tag", Tag);
-app.component("pv-card", Card);
-app.mount('#app')
+app.use(router);
+
+app.directive('tooltip', Tooltip);
+app.directive('ripple', Ripple);
+app.directive('code', CodeHighlight);
+app.directive('badge', BadgeDirective);
+app.directive('styleclass', StyleClass);
+app.component('DataView', DataView);
+app.component('Dropdown', Dropdown);
+app.component('DataViewLayoutOptions', DataViewLayoutOptions);
+app.component('Button', Button);
+app.component('Chip', Chip);
+app.component('Image', Image);
+app.component('Checkbox', Checkbox);
+app.component('InputText', InputText);
+app.component('Password', Password);
+app.component('Menu', Menu);
+app.component('Chart', Chart);
+app.component('Timeline', Timeline);
+app.component('Card', Card);
+
+app.mount('#app');
