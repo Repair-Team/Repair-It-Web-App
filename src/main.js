@@ -3,7 +3,9 @@ import 'primeflex/primeflex.css';
 import 'primeicons/primeicons.css';
 import 'prismjs/themes/prism-coy.css';
 import './assets/styles/layout.scss';
-
+import Button from 'primevue/button';
+import Chip from 'primevue/chip';
+import Image from 'primevue/image';
 import { createApp, reactive } from 'vue';
 import router from './router/index';
 import AppWrapper from './components/AppWrapper.vue';
@@ -37,5 +39,7 @@ app.directive('ripple', Ripple);
 app.directive('code', CodeHighlight);
 app.directive('badge', BadgeDirective);
 app.directive('styleclass', StyleClass);
-
+app.component('Chip', Chip);
+app.component('Button', Button);
+app.component('Image', Image);
 app.mount('#app');
