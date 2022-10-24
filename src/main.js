@@ -22,6 +22,7 @@ import Dropdown from 'primevue/dropdown';
 import DataViewLayoutOptions from 'primevue/dataviewlayoutoptions';
 import Button from 'primevue/button';
 import Menu from 'primevue/menu';
+import Chart from 'primevue/chart';
 
 import Tooltip from 'primevue/tooltip';
 
@@ -56,5 +57,6 @@ app.component('Checkbox', Checkbox);
 app.component('InputText', InputText);
 app.component('Password', Password);
 app.component('Menu', Menu);
+app.component('Chart', Chart);
 
 app.mount('#app');
