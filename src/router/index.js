@@ -8,7 +8,7 @@ const routes = [
         component: App,
         children: [
             {
-                path: '',
+                path: '/',
                 name: 'dashboard',
                 component: () => import('../components/customer/Dashboard.vue')
             },
@@ -40,10 +40,20 @@ const routes = [
         ]
     },
     {
-        path: '/login',
-        name: 'login',
-        component: () => import('../views/Login.vue')
+        path: '/signIn',
+        name: 'signIn',
+        component: () => import('../views/SignIn.vue')
     },
+    {
+        path: '/signUp',
+        name: 'signUp',
+        component: () => import('../views/SignUp.vue')
+    },
+    {
+        path: '/forgotPassword',
+        name: 'forgotPassword',
+        component: () => import('../views/ForgotPassword.vue')
+    }
 ];
 
 const router = createRouter({
