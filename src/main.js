@@ -13,6 +13,8 @@ import ConfirmationService from 'primevue/confirmationservice';
 import Ripple from 'primevue/ripple';
 import StyleClass from 'primevue/styleclass';
 import ToastService from 'primevue/toastservice';
+import Button from 'primevue/button';
+import Menu from 'primevue/menu';
 
 import Tooltip from 'primevue/tooltip';
 
@@ -37,5 +39,7 @@ app.directive('ripple', Ripple);
 app.directive('code', CodeHighlight);
 app.directive('badge', BadgeDirective);
 app.directive('styleclass', StyleClass);
+app.component('Button', Button);
+app.component('Menu', Menu);
 
 app.mount('#app');
