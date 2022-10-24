@@ -1,8 +1,8 @@
 <template>
     <BlockViewer header="Pricing" :code="block3">
         <div class="surface-ground px-4 py-8 md:px-6 lg:px-8">
-            <div class="text-900 font-bold text-6xl mb-4 text-center">Pricing Plans</div>
-            <div class="text-700 text-xl mb-6 text-center line-height-3">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit numquam eligendi quos.</div>
+            <div class="text-900 font-bold text-6xl mb-4 text-center">Choose your plan</div>
+            <div class="text-700 text-xl mb-6 text-center line-height-3">Choose the plan that best suits your needs. Remember that our mission is to offer you the best service.</div>
 
             <div class="grid">
                 <div class="col-12 lg:col-4">
