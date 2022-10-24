@@ -149,7 +149,6 @@ export default {
         'AppFooter': AppFooter,
     }
 }
-/* */
 </script>
 
 <style lang="scss">
