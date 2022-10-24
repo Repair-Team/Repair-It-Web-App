@@ -38,7 +38,7 @@ export default {
                         { label: 'Dashboard', icon: 'pi pi-fw pi-home', to: '/' },
                         { label: 'Notifications', icon: 'pi pi-fw pi-bell', to: '/notifications' },
                         { label: 'My Devices', icon: 'pi pi-fw pi-mobile', to: '/myDevices' },
-                        { label: 'My Reports', icon: 'pi pi-fw pi-list', to: '/myReports' },
+                        { label: 'My Timelines', icon: 'pi pi-fw pi-calendar-times', to: '/myTimelines' },
                         { label: 'My Plan', icon: 'pi pi-fw pi-money-bill', to: '/myPlan' },
                         { label: 'Profile', icon: 'pi pi-fw pi-user', to: '/profile' },
                     ]

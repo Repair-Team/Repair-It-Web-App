@@ -23,9 +23,9 @@ const routes = [
                 component: () => import('../components/customer/Notifications.vue')
             },
             {
-                path: '/myReports',
-                name: 'myReports',
-                component: () => import('../components/customer/MyReports.vue')
+                path: '/myTimelines',
+                name: 'myTimelines',
+                component: () => import('../components/customer/MyTimelines.vue')
             },
             {
                 path: '/myPlan',
