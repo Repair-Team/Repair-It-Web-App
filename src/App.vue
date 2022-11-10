@@ -57,8 +57,8 @@ export default {
           label: 'Menu',
           items: [
             { label: 'Profile', icon: 'pi pi-fw pi-user', to: '/profile' },
-            { label: 'Devices', icon: 'pi pi-fw pi-mobile', to: '/myDevices' },
-            { label: 'My Reports', icon: 'pi pi-fw pi-list', to: '/myReports' },
+            { label: 'Devices', icon: 'pi pi-fw pi-mobile', to: '/devices' },
+            { label: 'Repairs', icon: 'pi pi-fw pi-list', to: '/repairs' },
           ]
         },
       ]
