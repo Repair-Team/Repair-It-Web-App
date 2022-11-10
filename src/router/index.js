@@ -1,64 +1,73 @@
-import { createRouter, createWebHashHistory } from 'vue-router';
+import { createRouter, createWebHashHistory } from 'vue-router'
 import App from '../App.vue';
+import Profile from '../components/Profile.vue'
+import MyDevices from '../components/customer/MyDevices.vue'
+import MyPlan from '../components/customer/MyPlan.vue'
+import MyReports from '../components/customer/MyReports.vue'
+import Devices from '../components/technician/Devices.vue'
+import Repairs from '../components/technician/Repairs.vue'
+import ForgotPasswordView from '../views/ForgotPasswordView.vue'
+import SignInView from '../views/SignInView.vue'
+import SignUpView from '../views/SignUpView.vue'
 
 const routes = [
-    {
-        path: '/',
-        name: 'app',
-        component: App,
-        children: [
-            {
-                path: '/',
-                name: 'dashboard',
-                component: () => import('../components/customer/Dashboard.vue')
-            },
-            {
-                path: '/myDevices',
-                name: 'myDevices',
-                component: () => import('../components/customer/MyDevices.vue')
-            },
-            {
-                path: '/notifications',
-                name: 'notifications',
-                component: () => import('../components/customer/Notifications.vue')
-            },
-            {
-                path: '/myTimelines',
-                name: 'myTimelines',
-                component: () => import('../components/customer/MyTimelines.vue')
-            },
-            {
-                path: '/myPlan',
-                name: 'myPlan',
-                component: () => import('../components/customer/MyPlan.vue')
-            },
-            {
-                path: '/profile',
-                name: 'profile',
-                component: () => import('../components/Profile.vue')
-            },
-        ]
-    },
-    {
-        path: '/signIn',
-        name: 'signIn',
-        component: () => import('../views/SignIn.vue')
-    },
-    {
-        path: '/signUp',
-        name: 'signUp',
-        component: () => import('../views/SignUp.vue')
-    },
-    {
-        path: '/forgotPassword',
-        name: 'forgotPassword',
-        component: () => import('../views/ForgotPassword.vue')
-    }
+  {
+    path: '/app',
+    name: 'app',
+    component: App,
+    children: [
+      {
+        path: '/profile',
+        name: 'profile',
+        component: Profile
+      },
+      {
+        path: '/myDevices',
+        name: 'myDevices',
+        component: MyDevices
+      },
+      {
+        path: '/myPlan',
+        name: 'myPlan',
+        component: MyPlan
+      },
+      {
+        path: '/myReports',
+        name: 'myReports',
+        component: MyReports
+      },
+      {
+        path: '/devices',
+        name: 'devices',
+        component: Devices
+      },
+      {
+        path: '/repairs',
+        name: 'repairs',
+        component: Repairs
+      },
+    ]
+  },
+  {
+    path: '/',
+    name: 'signIn',
+    component: SignInView
+  },
+  {
+    path: '/forgotPassword',
+    name: 'forgotPassword',
+    component: ForgotPasswordView
+  },
+  {
+    path: '/signUp',
+    name: 'signUp',
+    component: SignUpView
+  },
 ];
 
 const router = createRouter({
-    history: createWebHashHistory(),
-    routes,
-});
+  history: createWebHashHistory(),
+  routes
+})
 
-export default router;
+export default router

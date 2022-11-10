@@ -21,7 +21,7 @@ export default {
                 cloneLinkElement.setAttribute('id', elementId);
             });
             linkElement.parentNode.insertBefore(cloneLinkElement, linkElement.nextSibling);
-        
+
             this.$appState.theme = event.theme;
             this.$appState.darkTheme = event.dark;
         };
