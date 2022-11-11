@@ -1,0 +1,78 @@
+{
+  "users": [
+    {
+      "firstName": "Edgar",
+      "lastName": "Anco",
+      "email": "edgar@gmail.com",
+      "password": "edgar123",
+      "isTechnician": true,
+      "isPremium": false,
+      "id": 1
+    },
+    {
+      "firstName": "test",
+      "lastName": "test",
+      "email": "test",
+      "password": "test",
+      "isTechnician": false,
+      "isPremium": false,
+      "id": 2
+    },
+    {
+      "firstName": "Edgar",
+      "lastName": "Anco Copaja",
+      "email": "test3",
+      "password": "Prueba123",
+      "isTechnician": false,
+      "isPremium": false,
+      "id": 3
+    }
+  ],
+  "devices": [
+    {
+      "id": "1",
+      "name": "iPhone 13",
+      "description": "My favorite phone",
+      "image": "iphone-13.jpg",
+      "category": "Cellphones",
+      "inventoryStatus": "ME",
+      "userId": 2
+    },
+    {
+      "id": "2",
+      "name": "iPhone 12",
+      "description": "My work phone",
+      "image": "iphone-12.jpg",
+      "category": "Cellphones",
+      "inventoryStatus": "STORE",
+      "userId": 2
+    },
+    {
+      "id": "3",
+      "name": "Samsung Galaxy S22",
+      "description": "My brother's phone",
+      "image": "samsung-galaxy-s22.jpg",
+      "category": "Cellphones",
+      "inventoryStatus": "TECHNICIAN",
+      "userId": 3
+    },
+    {
+      "id": "4",
+      "name": "Xiaomi Redmi 9A",
+      "description": "My father's phone",
+      "image": "xiaomi-redmi-9a.jpg",
+      "category": "Cellphones",
+      "inventoryStatus": "ME",
+      "userId": 3
+    },
+    {
+      "id": "5",
+      "name": "OPPO A53",
+      "description": "My mother's phone",
+      "image": "oppo-a53.jpg",
+      "category": "Cellphones",
+      "inventoryStatus": "ME",
+      "userId": 3
+    }
+  ]
+}
