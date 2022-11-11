@@ -84,3 +84,36 @@
  
 </template>
 
+<script>
+import axios from 'axios';
+export default {
+    data() {
+        return {
+            users: [],
+            usersService: null
+        }
+    },
+    async created() {
+        this.usersService = new UsersApiService();
+        this.usersService.findByEmail(localStorage.getItem('email')).then((response) => {
+            this.users = response.data
+        });
+    },
+    methods: {
+        async handleSubmitPremium() {
+            const response = await axios.patch('users/${id}', {
+                isPremium: true
+            });
+        },
+        async handleSubmitFree() {
+            const response = await axios.patch('users/${id}', {
+                isPremium: false
+            });
+        },
+        topbarImage() {
+            return 'images/logo-dark.svg';
+        }
+    }
+}
+</script>
+
