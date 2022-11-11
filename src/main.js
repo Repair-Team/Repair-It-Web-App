@@ -57,7 +57,7 @@ app.component('pv-button', Button);
 app.component('pv-card', Card);
 app.component('pv-checkbox', Checkbox);
 app.component('pv-chip', Chip);
-app.component('pv-dataView', DataView);
+app.component('pv-data-view', DataView);
 app.component('pv-data-view-layout-options', DataViewLayoutOptions);
 app.component('pv-dropdown', Dropdown);
 app.component('pv-image', Image);
