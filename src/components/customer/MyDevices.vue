@@ -76,11 +76,15 @@
 import ProductService from "../../core/services/ProductService";
 export default {
   data() {
-    return {}
+    return {  dataviewValue: null,
+      layout: 'grid'}
   },
+  productService: null,
   created() {
+    this.productService = new ProductService();
   },
   mounted() {
+    this.productService.getProducts().then(data => this.dataviewValue = data);
   }
 }
 
