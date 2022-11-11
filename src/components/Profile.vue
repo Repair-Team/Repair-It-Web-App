@@ -70,4 +70,28 @@
     </div>
 </template>
 
+<script>
+import { UsersApiService } from '@/core/services/users-api.services';
+export default {
+    name: 'Profile',
+    data() {
+        return {
+            users: [],
+            usersService: null
+        }
+    },
+    async created() {
+        this.usersService = new UsersApiService();
+        this.usersService.findByEmail(localStorage.getItem('email')).then((response) => {
+            this.users = response.data
+            console.log(this.users[0]);
+        });
+    }
+ 
+}
+</script>
+
+
+
+
 
