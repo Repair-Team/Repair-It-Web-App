@@ -32,11 +32,13 @@
                                 </li>
                             </ul>
                             <hr class="mb-3 mx-0 border-top-1 border-none surface-border mt-auto" />
-                            <div v-if="togglePremium">
-                                <pv-button label="SELECTED" class="p-3 w-full font-bold" />
-                            </div>
-                            <div v-if="!togglePremium">
-                                <pv-button label="CHOOSE THIS PLAN" class="p-3 w-full" @click="handleSubmitFree" />
+                            <div v-for="user in users">
+                                <div v-if="user.isPremium">
+                                    <pv-button label="CHOOSE THIS PLAN" class="p-3 w-full" @click="handleSubmitFree" />
+                                </div>
+                                <div v-else>
+                                    <pv-button label="SELECTED" class="p-3 w-full font-bold" />
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -72,11 +74,14 @@
                                 </li>
                             </ul>
                             <hr class="mb-3 mx-0 border-top-1 border-none surface-border" />
-                            <div v-if="!togglePremium">
-                                <pv-button label="SELECTED" class="p-3 w-full font-bold" />
-                            </div>
-                            <div v-if="togglePremium">
-                                <pv-button label="CHOOSE THIS PLAN" class="p-3 w-full" @click="handleSubmitPremium" />
+                            <div v-for="user in users">
+                                <div v-if="user.isPremium">
+                                    <pv-button label="SELECTED" class="p-3 w-full font-bold" />
+                                </div>
+                                <div v-else>
+                                    <pv-button label="CHOOSE THIS PLAN" class="p-3 w-full"
+                                        @click="handleSubmitPremium" />
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -95,9 +100,7 @@ export default {
     data() {
         return {
             users: [],
-            usersService: null,
-            togglePremium: true,
-            toggleFree: false
+            usersService: null
         }
     },
     async created() {
@@ -111,13 +114,11 @@ export default {
             const response = await axios.patch(`users/${localStorage.getItem('currentId')}`, {
                 isPremium: true
             });
-            this.togglePremium = !this.togglePremium
         },
         async handleSubmitFree() {
             const response = await axios.patch(`users/${localStorage.getItem('currentId')}`, {
                 isPremium: false
             });
-            this.togglePremium = !this.togglePremium
         },
         topbarImage() {
             return 'images/logo-dark.svg';

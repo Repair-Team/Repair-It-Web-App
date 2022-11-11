@@ -56,8 +56,10 @@
                                 </router-link>
                             </span>
                         </div>
-                        <pv-button label="Sign Up" class="w-full p-3 text-xl" @click="handleSubmit">
-                        </pv-button>
+                        <router-link to="/">
+                            <pv-button label="Sign Up" class="w-full p-3 text-xl" @click="handleSubmit">
+                            </pv-button>
+                        </router-link>
                     </div>
                 </div>
             </div>
@@ -75,7 +77,8 @@ export default {
             email: '',
             password: '',
             confirmPassword: '',
-            isTechnician: false
+            isTechnician: false,
+            isPremium: false
         }
     },
     methods: {
@@ -85,9 +88,9 @@ export default {
                 lastName: this.lastName,
                 email: this.email,
                 password: this.password,
-                isTechnician: this.isTechnician
+                isTechnician: this.isTechnician,
+                isPremium: this.isPremium
             });
-            this.$router.push('signIn');
         },
         topbarImage() {
             return 'images/logo-dark.svg';

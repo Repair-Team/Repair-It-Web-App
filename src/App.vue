@@ -71,7 +71,7 @@ export default {
     this.usersService = new UsersApiService();
     this.usersService.findByEmail(localStorage.getItem('email')).then((response) => {
       this.users = response.data
-      console.log(this.users[0]);
+      //console.log(this.users[0]);
     });
     //this.user = this.usersService.getById(1);
   },

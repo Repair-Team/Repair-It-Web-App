@@ -61,6 +61,7 @@ export default {
     async created() {
         localStorage.removeItem('email');
         localStorage.removeItem('isLoged');
+        localStorage.removeItem('currentId');
     },
     methods: {
         async handleSubmit() {
