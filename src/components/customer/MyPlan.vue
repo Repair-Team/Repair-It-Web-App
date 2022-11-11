@@ -4,7 +4,7 @@
             <div class="text-900 font-bold text-6xl mb-4 text-center">Choose your plan</div>
             <div class="text-700 text-xl mb-6 text-center line-height-3">Choose the plan that best suits your needs.
                 Remember that our mission is to offer you the best service.</div>
- 
+
             <div class="grid">
                 <div class="col-12 lg:col-6 text-center">
                     <div class="p-3 h-full">
@@ -32,12 +32,16 @@
                                 </li>
                             </ul>
                             <hr class="mb-3 mx-0 border-top-1 border-none surface-border mt-auto" />
-                            <pv-button label="CHOOSE THIS PLAN" class="p-3 w-full mt-auto" @click="handleSubmitFree">
-                            </pv-button>
+                            <div v-if="togglePremium">
+                                <pv-button label="SELECTED" class="p-3 w-full font-bold" />
+                            </div>
+                            <div v-if="!togglePremium">
+                                <pv-button label="CHOOSE THIS PLAN" class="p-3 w-full" @click="handleSubmitFree" />
+                            </div>
                         </div>
                     </div>
                 </div>
- 
+
                 <div class="col-12 lg:col-6 text-center">
                     <div class="p-3 h-full">
                         <div class="shadow-2 p-3 h-full flex flex-column surface-card" style="border-radius: 6px">
@@ -68,29 +72,32 @@
                                 </li>
                             </ul>
                             <hr class="mb-3 mx-0 border-top-1 border-none surface-border" />
-                            <pv-button label="CHOOSE THIS PLAN" class="p-3 w-full" @click="handleSubmitPremium">
-                            </pv-button>
+                            <div v-if="!togglePremium">
+                                <pv-button label="SELECTED" class="p-3 w-full font-bold" />
+                            </div>
+                            <div v-if="togglePremium">
+                                <pv-button label="CHOOSE THIS PLAN" class="p-3 w-full" @click="handleSubmitPremium" />
+                            </div>
                         </div>
                     </div>
                 </div>
- 
- 
             </div>
-            <div class="text-700 text-xl mb-6 text-center line-height-3">Your current plan is:</div>
- 
-            <div class="text-500 font-bold text-6xl mb-4 text-center">Free</div>
         </div>
     </BlockViewer>
- 
+
 </template>
 
 <script>
+import { UsersApiService } from '@/core/services/users-api.services';
 import axios from 'axios';
+
 export default {
     data() {
         return {
             users: [],
-            usersService: null
+            usersService: null,
+            togglePremium: true,
+            toggleFree: false
         }
     },
     async created() {
@@ -101,14 +108,16 @@ export default {
     },
     methods: {
         async handleSubmitPremium() {
-            const response = await axios.patch('users/${id}', {
+            const response = await axios.patch(`users/${localStorage.getItem('currentId')}`, {
                 isPremium: true
             });
+            this.togglePremium = !this.togglePremium
         },
         async handleSubmitFree() {
-            const response = await axios.patch('users/${id}', {
+            const response = await axios.patch(`users/${localStorage.getItem('currentId')}`, {
                 isPremium: false
             });
+            this.togglePremium = !this.togglePremium
         },
         topbarImage() {
             return 'images/logo-dark.svg';
@@ -116,4 +125,3 @@ export default {
     }
 }
 </script>
-
