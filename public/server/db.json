@@ -15,7 +15,7 @@
       "email": "test",
       "password": "test",
       "isTechnician": false,
-      "isPremium": false,
+      "isPremium": true,
       "id": 2
     },
     {
@@ -24,13 +24,22 @@
       "email": "test3",
       "password": "Prueba123",
       "isTechnician": false,
-      "isPremium": false,
+      "isPremium": true,
       "id": 3
+    },
+    {
+      "firstName": "asdfasdf",
+      "lastName": "asdgfasdfg",
+      "email": "edgar2@gmail.com",
+      "password": "edgar123",
+      "isTechnician": false,
+      "isPremium": false,
+      "id": 4
     }
   ],
   "devices": [
     {
-      "id": "1",
+      "id": 1,
       "name": "iPhone 13",
       "description": "My favorite phone",
       "image": "iphone-13.jpg",
@@ -39,7 +48,7 @@
       "userId": 2
     },
     {
-      "id": "2",
+      "id": 2,
       "name": "iPhone 12",
       "description": "My work phone",
       "image": "iphone-12.jpg",
@@ -48,7 +57,7 @@
       "userId": 2
     },
     {
-      "id": "3",
+      "id": 3,
       "name": "Samsung Galaxy S22",
       "description": "My brother's phone",
       "image": "samsung-galaxy-s22.jpg",
@@ -57,7 +66,7 @@
       "userId": 3
     },
     {
-      "id": "4",
+      "id": 4,
       "name": "Xiaomi Redmi 9A",
       "description": "My father's phone",
       "image": "xiaomi-redmi-9a.jpg",
@@ -66,13 +75,21 @@
       "userId": 3
     },
     {
-      "id": "5",
+      "id": 5,
       "name": "OPPO A53",
       "description": "My mother's phone",
       "image": "oppo-a53.jpg",
       "category": "Cellphones",
       "inventoryStatus": "ME",
       "userId": 3
+    }
+  ],
+  "repairs": [
+    {
+      "id": 1,
+      "deviceId": 1,
+      "report": "My favorite phone",
+      "image": "iphone-13.jpg"
     }
   ]
 }

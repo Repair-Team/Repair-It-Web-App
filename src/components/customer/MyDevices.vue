@@ -8,7 +8,7 @@
           <template #header>
             <div class="grid grid-nogutter">
               <div class="col-6 text-right">
-                <pv-data-view-layou-options v-model="layout" />
+                <pv-data-view-layout-options v-model="layout" />
               </div>
             </div>
           </template>
