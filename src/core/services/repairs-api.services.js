@@ -4,9 +4,7 @@ export class RepairsApiService {
     getAll() {
         return http.get('/repairs');
     }
-    getDevices() {
-        return http.get('/devrepairsices');
-    }
+
     getDevicesByCustomerId(customerId) {
         return http.get(`/repairs?customerId=${customerId}`);
     }
