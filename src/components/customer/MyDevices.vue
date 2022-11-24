@@ -62,14 +62,9 @@ export default {
     });
   },
   methods: {
-    /*async handleSubmitStore(id) {
+    async handleSubmitStore(id) {
       const response = await axios.patch(`devices/${id}`, {
         inventoryStatus: "STORE"
-      });
-    }*/
-    async handleSubmitStore(id) {
-      this.devicesService.update(localStorage.getItem('currentId'), storeStatus).then((response) => {
-        this.dataviewValue = response.data
       });
     }
   }
