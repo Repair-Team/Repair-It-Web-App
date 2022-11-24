@@ -10,6 +10,9 @@ export class DevicesApiService {
     getDevicesByUserId(userId) {
         return http.get(`/devices?userId=${userId}`);
     }
+    getDevicesByStatus(inventoryStatus) {
+        return http.get(`/devices?inventoryStatus=${inventoryStatus}`);
+    }
     getById(id) {
         return http.get(`/devices/${id}`);
     }

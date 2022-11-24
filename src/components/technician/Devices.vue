@@ -5,17 +5,17 @@
                 <h5>Devices in Store</h5>
                 <pv-data-view :value="dataviewValue" :layout="layout" :paginator="true" :rows="9" :sortOrder="sortOrder"
                     :sortField="sortField">
-                    <template #header>
+                    <!--<template #header>
                         <div class="grid grid-nogutter">
                             <div class="col-6 text-right">
                                 <pv-data-view-layout-options v-model="layout" />
                             </div>
                         </div>
-                    </template>
+                    </template>-->
                     <template #list="slotProps">
                         <div class="col-12">
                             <div class="flex flex-column md:flex-row align-items-center p-3 w-full">
-                                <img :src="'images/device/' + slotProps.data.image" :alt="slotProps.data.name"
+                                <img :src="slotProps.data.image" :alt="slotProps.data.name"
                                     class="my-4 md:my-0 w-9 md:w-10rem shadow-2 mr-5" />
                                 <div class="flex-1 text-center md:text-left">
                                     <div class="font-bold text-2xl">{{ slotProps.data.name }}</div>
@@ -54,7 +54,7 @@
                                         }}</span>
                                 </div>
                                 <div class="text-center">
-                                    <img :src="'images/device/' + slotProps.data.image" :alt="slotProps.data.name"
+                                    <img :src="slotProps.data.image" :alt="slotProps.data.name"
                                         class="w-9 shadow-2 my-3 mx-0" />
                                     <div class="text-2xl font-bold">{{ slotProps.data.name }}</div>
                                     <div class="mb-3">{{ slotProps.data.description }}</div>
@@ -87,7 +87,7 @@ export default {
         this.devicesService = new DevicesApiService();
     },
     mounted() {
-        this.devicesService.getDevices().then((response) => {
+        this.devicesService.getDevicesByStatus("STORE").then((response) => {
             this.dataviewValue = response.data
         });
     }
