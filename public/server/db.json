@@ -1,21 +1,21 @@
 {
   "users": [
     {
-      "firstName": "Edgar",
-      "lastName": "Anco",
-      "email": "edgar@gmail.com",
-      "password": "edgar123",
-      "isTechnician": true,
+      "firstName": "Jose",
+      "lastName": "Pedro",
+      "email": "jcayllahua@gmail.com",
+      "password": "123jose",
+      "isTechnician": false,
       "isPremium": false,
       "id": 1
     },
     {
-      "firstName": "test",
-      "lastName": "test",
-      "email": "test",
-      "password": "test",
-      "isTechnician": false,
-      "isPremium": true,
+      "firstName": "Edgar",
+      "lastName": "Anco",
+      "email": "eanco@technician.com",
+      "password": "eanco123",
+      "isTechnician": true,
+      "isPremium": false,
       "id": 2
     },
     {
@@ -42,54 +42,66 @@
       "id": 1,
       "name": "iPhone 13",
       "description": "My favorite phone",
-      "image": "iphone-13.jpg",
+      "image": "https://equiposlibres.pe/wp-content/uploads/2021/09/Apple-iPhone-13-Pro-Max-539.jpg",
       "category": "Cellphones",
       "inventoryStatus": "ME",
-      "userId": 2
+      "userId": 1
     },
     {
       "id": 2,
       "name": "iPhone 12",
       "description": "My work phone",
-      "image": "iphone-12.jpg",
+      "image": "https://tiendasishop.com/media/catalog/product/m/g/mgj83lz_a_1.jpg",
       "category": "Cellphones",
-      "inventoryStatus": "STORE",
-      "userId": 2
+      "inventoryStatus": "TECHNICIAN",
+      "userId": 1
     },
     {
       "id": 3,
       "name": "Samsung Galaxy S22",
       "description": "My brother's phone",
-      "image": "samsung-galaxy-s22.jpg",
+      "image": "https://e39a9f00db6c5bc097f9-75bc5dce1d64f93372e7c97ed35869cb.ssl.cf1.rackcdn.com/42673733-puUWIT76-large.jpg",
       "category": "Cellphones",
-      "inventoryStatus": "TECHNICIAN",
-      "userId": 3
+      "inventoryStatus": "STORE",
+      "userId": 1
     },
     {
       "id": 4,
       "name": "Xiaomi Redmi 9A",
       "description": "My father's phone",
-      "image": "xiaomi-redmi-9a.jpg",
+      "image": "https://hiraoka.com.pe/media/catalog/product/cache/a357cb11a228eb6f7f15c0ee1ff203af/1/_/1_183_1.jpg",
       "category": "Cellphones",
       "inventoryStatus": "ME",
-      "userId": 3
+      "userId": 2
     },
     {
       "id": 5,
       "name": "OPPO A53",
       "description": "My mother's phone",
-      "image": "oppo-a53.jpg",
+      "image": "https://m.media-amazon.com/images/I/41wC8aOZKYL.jpg",
       "category": "Cellphones",
-      "inventoryStatus": "ME",
-      "userId": 3
+      "inventoryStatus": "STORE",
+      "userId": 2
     }
   ],
-  "repairs": [
+  "reports": [
     {
       "id": 1,
+      "description": "This phone is repaired",
       "deviceId": 1,
-      "report": "My favorite phone",
-      "image": "iphone-13.jpg"
+      "name": "iPhone 13",
+      "image": "https://equiposlibres.pe/wp-content/uploads/2021/09/Apple-iPhone-13-Pro-Max-539.jpg",
+      "technicianId": 1,
+      "customerId": 1
+    },
+    {
+      "id": 2,
+      "description": "This phone is being repaired",
+      "deviceId": 2,
+      "name": "iPhone 12",
+      "image": "https://tiendasishop.com/media/catalog/product/m/g/mgj83lz_a_1.jpg",
+      "technicianId": 1,
+      "customerId": 1
     }
   ]
 }
