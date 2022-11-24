@@ -3,6 +3,7 @@
     <div class="col-12">
       <div class="card">
         <h5>My Devices</h5>
+        <pv-button label="Add Device" icon="pi pi-plus" class="p-button-success mr-2" @click="openNew" />
         <pv-data-view :value="dataviewValue" :layout="layout" :paginator="true" :rows="9" :sortOrder="sortOrder"
           :sortField="sortField">
           <!--<template #header>
